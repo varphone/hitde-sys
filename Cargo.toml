@@ -22,7 +22,7 @@ regex = "1.3"
 bindgen = { git = "https://github.com/varphone/rust-bindgen.git", rev = "v0.51.1-sp1" }
 
 [features]
-default = [ "hi3559av100" ]
+default = []
 hi3516ev200 = []
 hi3516ev300 = []
 hi3518ev200 = []
