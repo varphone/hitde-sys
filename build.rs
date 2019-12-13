@@ -56,7 +56,7 @@ impl bindgen::callbacks::ParseCallbacks for MyParseCallbacks {
 fn detect_mpp_path(mpp_dir: &str) -> Result<PathBuf, MyError> {
     let dir = env::var("CARGO_MANIFEST_DIR").unwrap();
     let mut base_path = Path::new(&dir);
-    for _a in 0..3 {
+    for _a in 0..9 {
         let np = base_path.join(mpp_dir);
         let path = Path::new(&np);
         if path.exists() {
