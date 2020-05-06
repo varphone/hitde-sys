@@ -217,7 +217,7 @@ fn main() -> Result<(), DynError> {
         })
         .union_fields_prefix("un")
         .derive_debug(true)
-        .impl_debug(false)
+        .impl_debug(true)
         .derive_default(true)
         .derive_partialeq(true)
         .derive_eq(true)
