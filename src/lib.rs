@@ -2,8 +2,24 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 #![allow(clippy::unreadable_literal)]
+use pavo_traits::{impl_as_bundle_many, AsPtr, AsPtrMut};
 
 include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
+
+impl_as_bundle_many!(
+    TDE_COMPOSOR_S,
+    TDE_SURFACE_LIST_S,
+    TDE2_BLEND_OPT_S,
+    TDE2_COLORKEY_COMP_S,
+    TDE2_CSC_OPT_S,
+    TDE2_FILLCOLOR_S,
+    TDE2_MB_S,
+    TDE2_MBOPT_S,
+    TDE2_OPT_S,
+    TDE2_PATTERN_FILL_OPT_S,
+    TDE2_RECT_S,
+    TDE2_SURFACE_S,
+);
 
 /// Make HI_BOOL can convert to bool.
 impl std::convert::Into<bool> for HI_BOOL {
