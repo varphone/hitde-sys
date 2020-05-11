@@ -6,9 +6,10 @@ use pavo_traits::{impl_as_bundle_many, AsPtr, AsPtrMut};
 
 include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 
+#[cfg(not(feature = "hi3531v100"))]
+impl_as_bundle_many!(TDE_COMPOSOR_S, TDE_SURFACE_LIST_S,);
+
 impl_as_bundle_many!(
-    TDE_COMPOSOR_S,
-    TDE_SURFACE_LIST_S,
     TDE2_BLEND_OPT_S,
     TDE2_COLORKEY_COMP_S,
     TDE2_CSC_OPT_S,
@@ -40,6 +41,7 @@ impl std::convert::Into<HI_BOOL> for bool {
 }
 
 // Fix incomplete PartialEq trait for TDE_COMPOSOR_S
+#[cfg(not(feature = "hi3531v100"))]
 impl PartialEq for TDE_COMPOSOR_S {
     fn eq(&self, other: &Self) -> bool {
         self.stSrcSurface == other.stSrcSurface
@@ -50,6 +52,7 @@ impl PartialEq for TDE_COMPOSOR_S {
 }
 
 // Fix incomplete Eq trait for TDE_COMPOSOR_S
+#[cfg(not(feature = "hi3531v100"))]
 impl Eq for TDE_COMPOSOR_S {}
 
 // Fix incomplete PartialEq trait for TDE2_COLORKEY_U
@@ -64,6 +67,27 @@ impl Eq for TDE2_COLORKEY_U {}
 
 // Fix incomplete PartialEq trait for TDE2_OPT_S
 impl PartialEq for TDE2_OPT_S {
+    #[cfg(feature = "hi3531v100")]
+    fn eq(&self, other: &Self) -> bool {
+        self.enAluCmd == other.enAluCmd
+            && self.enRopCode_Color == other.enRopCode_Color
+            && self.enRopCode_Alpha == other.enRopCode_Alpha
+            && self.enColorKeyMode == other.enColorKeyMode
+            && self.unColorKeyValue == other.unColorKeyValue
+            && self.enClipMode == other.enClipMode
+            && self.stClipRect == other.stClipRect
+            && self.enDeflickerMode == other.enDeflickerMode
+            && self.enFilterMode == other.enFilterMode
+            && self.enMirror == other.enMirror
+            && self.bClutReload == other.bClutReload
+            && self.u8GlobalAlpha == other.u8GlobalAlpha
+            && self.enOutAlphaFrom == other.enOutAlphaFrom
+            && self.u32Colorize == other.u32Colorize
+            && self.stBlendOpt == other.stBlendOpt
+            && self.stCscOpt == other.stCscOpt
+    }
+
+    #[cfg(not(feature = "hi3531v100"))]
     fn eq(&self, other: &Self) -> bool {
         self.enAluCmd == other.enAluCmd
             && self.enRopCode_Color == other.enRopCode_Color
