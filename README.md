@@ -1,6 +1,8 @@
 hitde-sys
 =========
 
+[![Build Status](https://ci.vaxpl.com/api/badges/rdst/hitde-sys/status.svg?ref=refs/heads/{{BRANCH_NAME}})](https://ci.vaxpl.com/rdst/hitde-sys)
+
 Hi35XX TDE API for Rust unsafe bindings.
 
 Requirements
