@@ -9,7 +9,7 @@ description = """
 Hi35XX TDE API for Rust unsafe bindings.
 """
 documentation = "https://docs.rs/hitde-sys"
-homepage = "https://github.com/varphone/hitde-sys"
+homepage = "https://github.com/vaxpl/hitde-sys"
 readme = "README.md"
 categories = ["embedded", "external-ffi-bindings"]
 license = "MIT"
